@@ -44,7 +44,7 @@ class GitArtifactApp(PythonEDA):
             banner = GitArtifactBanner()
         except ImportError:
             pass
-        from pythoneda.artifact.git import import GitArtifact
+        from pythoneda.artifact.git import GitArtifact
         super().__init__(banner, __file__)
 
 if __name__ == "__main__":
