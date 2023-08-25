@@ -48,4 +48,4 @@ class GitArtifactApp(PythonEDA):
         super().__init__(banner, __file__)
 
 if __name__ == "__main__":
-    asyncio.run(GitArtifactApp.main())
+    asyncio.run(GitArtifactApp.main("pythoneda.artifact.git.application.GitArtifactApp"))
