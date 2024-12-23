@@ -20,9 +20,30 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 import asyncio
+from dbus_next import BusType
 from pythoneda.shared.application import PythonEDA
+from pythoneda.artifact.git.infrastructure.dbus import (
+    GitDbusSignalEmitter,
+    GitDbusSignalListener,
+)
+from pythoneda.shared.artifact.events.code.infrastructure.dbus import (
+    DbusChangeStagingCodeDescribed,
+    DbusChangeStagingRequested,
+)
 
 
+@enable(
+    GitDbusSignalEmitter,
+    events=[
+        {"event-class": DbusChangeStagingCodeDescribed, "bus-type": BusType.SYSTEM}
+    ],
+)
+@enable(
+    GitDbusSignalListener,
+    events=[
+        {"event-class": DbusChangeStagingCodeRequested, "bus-type": BusType.SYSTEM}
+    ],
+)
 class GitArtifactApp(PythonEDA):
     """
     Runs the domain of Git artifacts.
