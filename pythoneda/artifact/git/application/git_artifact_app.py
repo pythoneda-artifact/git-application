@@ -74,9 +74,7 @@ class GitArtifactApp(PythonEDA):
 
 
 if __name__ == "__main__":
-    asyncio.run(
-        GitArtifactApp.main("pythoneda.artifact.git.application.GitArtifactApp")
-    )
+    asyncio.run(GitArtifactApp.main())
 # vim: syntax=python ts=4 sw=4 sts=4 tw=79 sr et
 # Local Variables:
 # mode: python
